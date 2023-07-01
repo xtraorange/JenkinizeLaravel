@@ -24,6 +24,12 @@ To install "Jenkinize Laravel", follow these steps:
 
     composer require xtraorange/jenkinize-laravel
 
+3. Create a new multibranch in Jenkins.
+4. Choose github as the source, and provide the credentials.
+5. Add the repository URL and validate.
+6. Set Discover branches: All Branches
+7. 
+
 
 ### Usage
 
@@ -38,3 +44,8 @@ If you'd like to contribute, please fork the repository and use a feature branch
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+
+
+### TODO
+Look into docker registry options in Jenkins

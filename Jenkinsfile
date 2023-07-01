@@ -4,7 +4,7 @@ pipeline {
         skipDefaultCheckout(true)
     }
     environment {
-        PROJECT_NAME = 'project_name'
+        PROJECT_NAME = 'UnknownProject'
         BASE_NAME = ''
         JENKINS_DEPLOY_DIRECTORY = ''
         CODEBASE_VOLUME_NAME = ''
@@ -22,6 +22,11 @@ pipeline {
                     steps {
                         cleanWs()
                         checkout scm
+                    }
+                }
+                stage('Load Config') {
+                    steps {
+                        def config = load 'jenkins.config'
                     }
                 }
                 stage('Determine Environment') {
@@ -43,7 +48,14 @@ pipeline {
                             }
                             if (CURRENT_ENV == null) {
                                 error("No valid environment detected for branch ${env.BRANCH_NAME}. Failing the pipeline.")
-                            } else {
+                            }
+                        }
+                    }
+                }
+                stage('Loading Environment Configuration') {
+                    steps {
+                        script {
+
                                 BASE_NAME = "${PROJECT_NAME}_${CURRENT_ENV}"
                                 CONTAINER_NAME = "${BASE_NAME}_app"
                                 NETWORK_NAME = "${BASE_NAME}_network"
@@ -58,8 +70,7 @@ pipeline {
                                         APP_PORT = '8001'
                                     break case 'prod':
                                         APP_PORT = '8000'
-                                }
-                            }
+                                }                            }
                         }
                     }
                 }
