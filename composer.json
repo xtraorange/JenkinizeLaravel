@@ -1,8 +1,6 @@
 {
     "name": "xtraorange/jenkinize_laravel",
     "description": "Create an CI/CD pipeline in any Laravel project with fewer steps.",
-    "version": "v0.1",
-    "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
             "Xtraorange\\JenkinizeLaravel\\": "src/"
