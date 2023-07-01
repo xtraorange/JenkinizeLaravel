@@ -1,0 +1,16 @@
+{
+    "name": "xtraorange/jenkinize_laravel",
+    "description": "Create an CI/CD pipeline in any Laravel project with fewer steps.",
+    "autoload": {
+        "psr-4": {
+            "Xtraorange\\JenkinizeLaravel\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "xtraorange",
+            "email": "xtraorange@gmail.com"
+        }
+    ],
+    "require": {}
+}
