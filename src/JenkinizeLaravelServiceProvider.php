@@ -1,8 +1,9 @@
 <?php
 
-namespace YourNamespace\JenkinizeLaravel;
+namespace Xtraorange\JenkinizeLaravel;
 
 use Illuminate\Support\ServiceProvider;
+
 
 class JenkinizeLaravelServiceProvider extends ServiceProvider
 {
