@@ -30,7 +30,7 @@ To install "Jenkinize Laravel", follow these steps:
 1. Navigate to your Laravel project directory.
 2. Require "Jenkinize Laravel" into your project using Composer:
 
-   composer require xtraorange/jenkinize-laravel
+   `composer require xtraorange/jenkinize-laravel`
 
 
 3. In Jenkins, create a new multi-branch pipeline.
@@ -39,13 +39,13 @@ To install "Jenkinize Laravel", follow these steps:
 6. Set "Discover branches" to "All Branches".
 
 Next, you need to publish all the assets that you want to use. You can either publish all assets by running:
-  php artisan vendor:publish
+  `php artisan vendor:publish`
 
 Or publish specific assets by specifying their tags:
-  php artisan vendor:publish --tag=jenkinsfile
-  php artisan vendor:publish --tag=jenkinize-config
-  php artisan vendor:publish --tag=docker
-  php artisan vendor:publish --tag=docker-jenkins
+  `php artisan vendor:publish --tag=jenkinsfile`
+  `php artisan vendor:publish --tag=jenkinize-config`
+  `php artisan vendor:publish --tag=docker`
+  `php artisan vendor:publish --tag=docker-jenkins`
 
 
 
