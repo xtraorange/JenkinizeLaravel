@@ -23,7 +23,7 @@ class JenkinizeLaravelServiceProvider extends ServiceProvider
         ], 'jenkinize-config');
 
         $this->publishes([
-            __DIR__.'/../resources/docker-jenkins' => base_path('docker')
+            __DIR__.'/../resources/docker' => base_path('docker')
         ], 'docker');
 
         $this->publishes([
