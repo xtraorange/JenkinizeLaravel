@@ -1,63 +1,63 @@
 # Jenkinize Laravel
 
-A tool to set up and configure your Laravel environment and deployment pipeline with Jenkins. With just a few steps, you can have your development, staging, and production environments set up and ready for deployment.
+Jenkinize Laravel is a utility to facilitate the configuration of your Laravel environment and setup your deployment pipeline with Jenkins. It enables you to establish your development, staging, and production environments with just a few simple steps.
 
 ## Getting Started
 
-These instructions will help you to integrate "Jenkinize Laravel" into your existing or new Laravel project.
+Follow these instructions to integrate "Jenkinize Laravel" into your existing or new Laravel project.
 
 ### Prerequisites
 
-Before you begin, ensure you have met the following requirements:
+Before you begin, make sure you have:
 
-- You have installed [Docker](https://www.docker.com/).
-- You have installed [Jenkins](https://www.jenkins.io/).
-- You have a [Laravel](https://laravel.com/) project.
-- You have a [GitHub](https://github.com/) account.
+- [Docker](https://www.docker.com/) installed.
+- [Jenkins](https://www.jenkins.io/) installed.
+- A [Laravel](https://laravel.com/) project set up.
+- A [GitHub](https://github.com/) account.
 
+### Pre-setup Steps
 
-### Presetup
-
-1.  Create mysql volumes (project_name_env_mysql)
-2.  Create environment networks (project_name_env_network)
-3.  Create MySQL stack, using mysql_portainer_custom_template.txt in repo.
-4.  Double check JenkinsFile config
-5.  Push code and let Jenkins do it's thing.
-
+1. Create MySQL volumes (`project_name_env_mysql`).
+2. Create environment networks (`project_name_env_network`).
+3. Set up the MySQL stack using the `mysql_portainer_custom_template.txt` provided in the repository.
+4. Verify the configuration in your `Jenkinsfile`.
+5. Push your code to the repository and let Jenkins handle the rest.
 
 ### Installation
 
 To install "Jenkinize Laravel", follow these steps:
 
 1. Navigate to your Laravel project directory.
-2. Use composer to require "Jenkinize Laravel" into your project:
+2. Require "Jenkinize Laravel" into your project using Composer:
 
    composer require xtraorange/jenkinize-laravel
 
-3. Create a new multibranch in Jenkins.
-4. Choose github as the source, and provide the credentials.
-5. Add the repository URL and validate.
-6. Set Discover branches: All Branches
-7.
 
+3. In Jenkins, create a new multi-branch pipeline.
+4. Choose GitHub as the branch source and provide your GitHub credentials.
+5. Add your repository URL and validate it.
+6. Set "Discover branches" to "All Branches".
 
-Make sure to publish all the assets you want, either by running
+Next, you need to publish all the assets that you want to use. You can either publish all assets by running:
   php artisan vendor:publish
-Or by specifying the assets desired:
+
+Or publish specific assets by specifying their tags:
   php artisan vendor:publish --tag=jenkinsfile
   php artisan vendor:publish --tag=jenkinize-config
   php artisan vendor:publish --tag=docker
   php artisan vendor:publish --tag=docker-jenkins
 
 
+
 ### Usage
 
 Once "Jenkinize Laravel" is installed, you can set up your environments and deployment pipeline:
-1. Create a definition for each of your environments in the jenkins.config file.
-2. Create a matching .env.[environment name] for each environment.  Do not store sensitive information in this.
-3. For each environment, create a secret on Jenkins for the sensitive ENV values.
 
-- _Instructions for setting up environments and pipeline..._
+1. Create a definition for each of your environments in the `jenkinize.config` file.
+2. For each environment, create a corresponding `.env.[environment name]` file. Avoid storing sensitive information in this file.
+3. For each environment, create a corresponding secret in Jenkins for sensitive environment variable values.
+
+(Provide more detailed instructions here)
 
 ## Contributing
 
@@ -69,6 +69,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ### TODO
 
- - Look into docker registry options in Jenkins
- - Specify Jenkins docker deployment details
- - Automatically deploy an appropriate database image (create a folder for docker files?)
+- Explore Docker registry options in Jenkins.
+- Specify Jenkins Docker deployment details.
+- Implement automatic deployment of an appropriate database image (perhaps create a dedicated directory for Docker files?).
+- Refine stage setups.
+- Write setup instructions for Jenkins and other prerequisite components.
