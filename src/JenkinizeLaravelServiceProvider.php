@@ -14,18 +14,23 @@ class JenkinizeLaravelServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Here is where we will copy the Jenkinsfile and Dockerfile if they do not exist in the base path.
-        if (!file_exists(base_path('Jenkinsfile'))) {
-            copy(__DIR__.'/../Jenkinsfile', base_path('Jenkinsfile'));
-        }
+        $this->publishes([
+            __DIR__.'/../resources/Jenkinsfile' => base_path('Jenkinsfile'),
+        ], 'jenkinsfile');
 
-        if (!file_exists(base_path('Dockerfile'))) {
-            copy(__DIR__.'/../Dockerfile', base_path('Dockerfile'));
-        }
+        $this->publishes([
+            __DIR__.'/../resources/jenkinize.config' => base_path('jenkinize.config'),
+        ], 'jenkinize-config');
 
-        if (!file_exists(base_path('jenkins.config'))) {
-            copy(__DIR__.'/../Dockerfile', base_path('jenkins.config'));
-        }
+        $this->publishes([
+            __DIR__.'/../resources/docker-jenkins' => base_path('docker')
+        ], 'docker');
+
+        $this->publishes([
+            __DIR__.'/../resources/docker-jenkins' => base_path('docker-jenkins')
+        ], 'docker-jenkins');
+
+     
     }
 
     /**
